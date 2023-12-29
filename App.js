@@ -1,37 +1,22 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  TouchableHighlight,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
-const App = () => {
-  const handleClick = () => {
-    alert("Merhaba");
-  };
-
-  return (
-    <View style={styles.container}>
-      <Button title="Click Button" onPress={handleClick} />
-      <TouchableOpacity onPress={handleClick}>
-        <Text>Click TouchableOpacity</Text>
-      </TouchableOpacity>
-      <TouchableHighlight
-        underlayColor="#DDDDDD"
-        onPress={() => alert("Pressed!")}
-      >
-        <Text>Click TouchableHighlight</Text>
-      </TouchableHighlight>
-      <TouchableWithoutFeedback onPress={() => alert("Pressed!")}>
-        <Text>Click TouchableWithoutFeedback</Text>
-      </TouchableWithoutFeedback>
-    </View>
-  );
-};
+const App = () => (
+  <View style={styles.container}>
+    <Image
+      resizeMode="cover"
+      style={{
+        width: "100%",
+        height: 180,
+        borderWidth: 2,
+        borderColor: "red",
+      }}
+      source={
+        "https://media.istockphoto.com/photos/stockholm-sweden-scenic-summer-sunset-view-with-"
+      }
+    />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
