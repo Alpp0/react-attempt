@@ -1,29 +1,32 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import Drawer from "./Drawer";
 
-const App = () => (
-  <View style={styles.container}>
-    <Image
-      resizeMode="cover"
-      style={{
-        width: "100%",
-        height: 180,
-        borderWidth: 2,
-        borderColor: "red",
-      }}
-      source={
-        "https://media.istockphoto.com/photos/stockholm-sweden-scenic-summer-sunset-view-with-"
-      }
-    />
-  </View>
-);
+const App = () => {
+  const [leftDrawerOpen, setLeftDrawerOpen] = useState(false);
+  const [rightDrawerOpen, setRightDrawerOpen] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+  const toggleLeftDrawer = () => {
+    setLeftDrawerOpen(!leftDrawerOpen);
+  };
+
+  const toggleRightDrawer = () => {
+    setRightDrawerOpen(!rightDrawerOpen);
+  };
+
+  const closeDrawers = () => {
+    setLeftDrawerOpen(false);
+    setRightDrawerOpen(false);
+  };
+
+  return (
+    <div className="app">
+      <button onClick={toggleLeftDrawer}>Toggle Left Drawer</button>
+      <button onClick={toggleRightDrawer}>Toggle Right Drawer</button>
+
+      <Drawer side="left" isOpen={leftDrawerOpen} onClose={closeDrawers} />
+      <Drawer side="right" isOpen={rightDrawerOpen} onClose={closeDrawers} />
+    </div>
+  );
+};
 
 export default App;
